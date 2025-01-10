@@ -51,7 +51,7 @@ publishing {
             // Optional: Add metadata
             groupId = 'com.github.surensth'
             artifactId = 'TextDrawable'
-            version = '1.0.0'
+            version = '1.0.1'
         }
     }
 }
