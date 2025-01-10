@@ -1,7 +1,5 @@
-plugins {
-    id 'com.android.library' // For Android libraries
-    id 'maven-publish'       // For publishing the library
-}
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 21
@@ -22,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 sourceSets {
@@ -45,8 +43,7 @@ task sourcesJar(type: Jar) {
 // Configure Maven publishing
 publishing {
     publications {
-        release(MavenPublication) {
-            from components.release
+        aar(MavenPublication) {
 
             // Optional: Add metadata
             groupId = 'com.github.surensth'
