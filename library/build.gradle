@@ -45,7 +45,9 @@ publishing {
         aar(MavenPublication) {
             groupId = 'com.github.surensth'  // Replace with your GitHub username or org
             artifactId = 'TextDrawable'      // The name of your project
-            version = '1.0.6'                // Your version number
+            version = '1.0.7'                // Your version number
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+
             // Generate the POM file
             pom {
                 packaging = 'aar'
