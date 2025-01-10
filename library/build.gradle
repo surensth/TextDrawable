@@ -43,11 +43,29 @@ task sourcesJar(type: Jar) {
 publishing {
     publications {
         aar(MavenPublication) {
+            groupId = 'com.github.surensth'  // Replace with your GitHub username or org
+            artifactId = 'TextDrawable'      // The name of your project
+            version = '1.0.6'                // Your version number
+            // Generate the POM file
+            pom {
+                packaging = 'aar'
+                name = 'TextDrawable'
+                description = 'A simple library to create text drawable images'
+                url = 'https://github.com/surensth/TextDrawable'
 
-            // Optional: Add metadata
-            groupId = 'com.github.surensth'
-            artifactId = 'TextDrawable'
-            version = '1.0.4'
+                developers {
+                    developer {
+                        id = 'surensth'
+                        name = 'Surendra Shrestha'
+                        email = 'developer.suren@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://jitpack.io")
         }
     }
 }
