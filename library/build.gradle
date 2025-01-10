@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library' // For Android libraries
+    id 'maven-publish'       // For publishing the library
+}
 
 android {
     compileSdkVersion 21
@@ -36,4 +39,19 @@ sourceSets {
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.java, sourceSets.main.resources
+}
+
+
+// Configure Maven publishing
+publishing {
+    publications {
+        release(MavenPublication) {
+            from components.release
+
+            // Optional: Add metadata
+            groupId = 'com.github.surensth'
+            artifactId = 'TextDrawable'
+            version = '1.0.0'
+        }
+    }
 }
